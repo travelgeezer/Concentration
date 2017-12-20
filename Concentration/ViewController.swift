@@ -12,8 +12,6 @@ class ViewController: UIViewController {
     
     lazy var game = Concentration(numberOfPairsOfCards: (touchButtons.count + 1) / 2)
     
-    private var emojis = ["🎃", "👻", "🎃", "👻"]
-  
     @IBOutlet var touchButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
@@ -44,9 +42,7 @@ class ViewController: UIViewController {
     }
     
     func emoji(for card: Card) -> String {
-        print("card.identifier : \(card.identifier) ")
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
-            print("emojiChoices.count : \(emojiChoices.count)")
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
             emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
         }

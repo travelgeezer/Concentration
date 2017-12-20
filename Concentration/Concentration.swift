@@ -39,10 +39,10 @@ class Concentration {
             cards += [card, card]
         }
         
-        sortCards()
+        shuffle()
     }
     
-    func sortCards() {
+    func shuffle() {
         for index in cards.indices {
             let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
             let randomCard = cards[randomIndex]
